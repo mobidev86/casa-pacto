@@ -1,0 +1,30 @@
+title: 'Section Settings'
+sections:
+  -
+    display: Settings
+    fields:
+      -
+        handle: section_css_id
+        field:
+          placeholder: section-name
+          type: text
+          display: 'Section CSS ID'
+          width: 50
+      -
+        handle: background_color
+        field:
+          type: color
+          display: 'Background Color'
+          width: 50
+      -
+        handle: padding_top
+        field:
+          type: integer
+          display: 'Padding Top'
+          width: 50
+      -
+        handle: padding_bottom
+        field:
+          type: integer
+          display: 'Padding Bottom'
+          width: 50

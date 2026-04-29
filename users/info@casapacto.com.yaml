@@ -1,0 +1,14 @@
+name: 'Casa Pacto'
+super: true
+id: f25b2914-4af6-4dc3-a206-c5b610dfe147
+password_hash: $2y$12$CArnfQcNRfRwf9BmJwat6uLzAJkgU38aeZ2yzP8wkMGdppcHm1DxW
+preferences:
+  collections:
+    pages:
+      view: list
+      after_save: continue_editing
+    houses:
+      view: tree
+    usps:
+      view: tree
+      after_save: continue_editing

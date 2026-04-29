@@ -1,0 +1,67 @@
+{{ if banner_variant == 'large' }}
+<div class="relative md:max-h-199.75 site-page-banner">
+    <div class="absolute inset-0 after:absolute after:inset-0 max-md:after:bg-black/40 md:after:bg-gradient-to-r md:after:from-black/70">
+        <video autoplay muted loop id="heroVideo" poster="{{ banner_image:url }}" class="w-full h-full object-cover">
+            <source src="{{ banner_video:url }}" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+    <div class="container relative z-2 pt-40 md:pt-42.25 pb-34 md:pb-10.25">
+        <div class="md:max-w-148.75 lg:max-w-175 xl:max-w-221.75">
+            {{ if banner_heading }}
+            <h1 class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl sm:leading-[1.25] font-heading font-semibold max-w-80 md:max-w-132 mb-6 uppercase">{{ banner_heading }}</h1>
+            {{ /if }}
+
+            {{ if banner_sub_heading }}
+            <div class="bg-brown border border-brown text-white rounded-full inline-flex items-center justify-center font-light px-4.5 min-w-57 h-10">{{ banner_sub_heading }}</div>
+            {{ /if }}
+
+            {{ if banner_short_description }}
+            <div class="text-white mt-6 mb-10 leading-[32px]">{{ banner_short_description }}</div>
+            {{ /if }}
+            
+            {{ if banner_buttons }}
+            <div class="flex flex-wrap items-center gap-6 md:mb-22.25">
+                {{ banner_buttons }}
+                    {{ if index % 2 == 0 }}
+                    {{ button_link }}
+                        <a href="{{ url }}" class="bg-lime inline-flex items-center justify-between text-white hover:bg-body  h-14 gap-3.25 pl-6 pr-6.75 group">{{ text }}
+                            <svg width="13" height="13" viewBox="0 0 13 13" class="group-hover:rotate-45 transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5312 0H12.2812V9H10.7812V2.5625L1.5625 11.7812L1.03125 12.3125L0 11.25L0.53125 10.7188L9.75 1.5H3.28125V0H11.5312Z" fill="currentColor"/></svg>
+                        </a>
+                    {{ /button_link }}
+                    {{ else }}
+                        {{ button_link}}
+                        <a href="{{ url }}" class="bg-transparent border border-white inline-flex items-center justify-between text-white hover:bg-white hover:text-body h-14 gap-3.25 pl-6 pr-6.75 group">{{ text }}
+                            <svg width="13" height="13" viewBox="0 0 13 13" class="group-hover:rotate-45 transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5312 0H12.2812V9H10.7812V2.5625L1.5625 11.7812L1.03125 12.3125L0 11.25L0.53125 10.7188L9.75 1.5H3.28125V0H11.5312Z" fill="currentColor"/></svg>
+                        </a>
+                        {{ /button_link}}
+                    {{ /if }}
+                {{ /banner_buttons }}
+            </div>
+            {{ /if }}
+            <div class="animate-bounce hidden md:block">
+                <svg width="24" height="42" viewBox="0 0 24 42" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.7578 40.0078L1.19531 30.4453L0 29.25L2.39062 26.8594L3.58594 28.0547L10.2656 34.7344V0H13.6406V34.7344L20.3203 28.0547L21.5156 26.8594L23.9062 29.25L22.7109 30.4453L13.1484 40.0078L11.9531 41.2031L10.7578 40.0078Z" fill="white"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+    {{ if show_house_visual }}
+    <div class="absolute right-0 bottom-0 hidden md:flex justify-end w-2/5 md:max-w-77.5 lg:max-w-102 xl:max-w-105  2xl:max-w-175">
+        <img src="assets/images/house-visual.png" />
+    </div>
+    {{ /if }}
+</div>
+{{ else }}
+    <div class="relative md:max-h-199.75 site-page-banner">
+        <div class="absolute inset-0 after:absolute after:inset-0 max-md:after:bg-black/40 md:after:bg-gradient-to-r md:after:from-black/70">
+            <img src="{{ banner_image:url }}" alt="Hero Image" class="w-full h-full object-cover hidden"/>
+        </div>
+        <div class="container relative z-2 pt-40 md:pt-42.25 pb-34 md:pb-10.25">
+            <div class="md:max-w-148.75 lg:max-w-175 xl:max-w-221.75">
+                {{ if banner_heading }}
+                <h1 class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl sm:leading-[1.25] font-heading font-semibold max-w-80 md:max-w-132 mb-6 uppercase">{{ banner_heading }}</h1>
+                {{ /if }}
+            </div>
+        </div>
+    </div>
+{{ /if }}

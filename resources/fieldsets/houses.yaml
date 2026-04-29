@@ -1,0 +1,18 @@
+title: Houses
+sections:
+  -
+    display: Houses
+    fields:
+      -
+        handle: houses_heading
+        field:
+          type: text
+          display: Heading
+      -
+        handle: houses
+        field:
+          collections:
+            - houses
+          create: false
+          type: entries
+          display: Houses

@@ -1,0 +1,169 @@
+{{#
+    @name Header
+    @desc The sites header rendered on each page.
+#}}
+
+<header x-data="{ mobileMenu:false, dropdown:false }" 
+    :class="mobileMenu ? 'bg-white bg-none' : ''"
+    class="absolute inset-x-0 top-0 z-50 py-8 md:py-3 bg-linear-(--header-gradient) transition-all duration-300">
+    <div class="container">
+        <div class="flex justify-between items-center md:relative">
+            <a href="{{ site:url }}" aria-label="Logo">
+                {{ logos:header_logo }}
+                    <img src="{{ url }}" alt="{{ alt }}" class="w-16.5 hidden md:block"/>
+                {{ /logos:header_logo }}
+                <!-- Mobile logo -->
+                {{ logos:header_logo }}
+                    <img src="{{ url }}" alt="{{ alt }}" class="w-16.75 md:hidden"/>
+                {{ /logos:header_logo }}
+            </a>
+
+            <button
+                @click="mobileMenu=!mobileMenu"
+                class="md:hidden p-1 text-white menuToggle" >
+                <svg x-show="!mobileMenu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+
+                <svg x-show="mobileMenu" class="w-6 h-6" fill="none" stroke="#1A1A1A" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+            <!-- Desktop Menu -->
+            <nav class="max-md:hidden">
+                <ul class="flex items-center text-base gap-6 nav-bar">
+                    {{ nav:main_menu }}
+                    <li>
+                        {{ if enable_mega_menu }}
+                        <div @click.outside="dropdown=false">
+                            <button
+                                @click="dropdown=!dropdown"
+                                class="flex items-center gap-2.5 text-white relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 hover:after:bg-white hover:after:w-full after:transition-all after:duration-400"
+                            >
+                                {{ title }}
+                                <svg xmlns="http://www.w3.org/2000/svg" 
+                                    class="w-2.5 h-4 transition-transform duration-300"
+                                    :class="dropdown ? 'rotate-180' : 'rotate-0'" 
+                                    viewBox="0 0 320 512"><path d="M140.3 376.8c12.6 10.2 31.1 9.5 42.8-2.2l128-128c9.2-9.2 11.9-22.9 6.9-34.9S301.4 192 288.5 192l-256 0c-12.9 0-24.6 7.8-29.6 19.8S.7 237.5 9.9 246.6l128 128 2.4 2.2z" fill="currentColor"/></svg>
+                                <div :class="dropdown ? 'opacity-180' : 'opacity-0'"
+                                    class="absolute w-0 h-0 border-b-[14px] border-x-[18px] border-b-[#e5e5e5] border-x-transparent left-1/2 top-9.5 z-1 -translate-x-1/2 transition-all duration-300"></div>
+                            </button>
+
+                            <div
+                                x-show="dropdown"
+                                x-transition
+                                class="absolute top-full left-0 mt-3 w-full bg-white border border-[#E5E5E5] px-10 py-16 lg:py-20 lg:px-16"
+                            >
+                                <div class="flex flex-col md:flex-row gap-10 md:gap-14 lg:gap-20 xl:gap-24">
+                                    <div class="w-full md:max-w-102.5 lg:max-w-140 xl:max-w-161.5">
+                                        {{ if mega_menu_heading }}
+                                        <h2 class="text-body text-4xl lg:text-5xl font-heading font-semibold uppercase mb-6">{{ mega_menu_heading }}</h2>
+                                        {{ /if }}
+                                        {{ if mega_menu_short_description }}
+                                        <p class="mb-10">{{ mega_menu_short_description }}</p>
+                                        {{ /if }}
+                                        {{ if mega_menu_button_link }}
+                                        {{ mega_menu_button_link }}
+                                        <a href="{{ url }}" class="bg-brown inline-flex items-center justify-between text-white hover:bg-teal-dark hover:text-white h-14 gap-3.25 pl-6 pr-6.75 group">
+                                            {{ text}}
+                                            <svg width="13" height="13" viewBox="0 0 13 13" class="group-hover:rotate-45 transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5312 0H12.2812V9H10.7812V2.5625L1.5625 11.7812L1.03125 12.3125L0 11.25L0.53125 10.7188L9.75 1.5H3.28125V0H11.5312Z" fill="currentColor"/></svg>
+                                        </a>
+                                        {{ /mega_menu_button_link }}
+                                        {{ /if }}
+                                    </div>
+                                    {{ if mega_menu_sub_items }}
+                                    <div class="flex flex-col gap-4">
+                                        {{ mega_menu_sub_items }}
+                                            {{ mega_menu_item_link}}
+                                                <a href="{{ url }}" class="text-xl lg:text-2xl inline-flex relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:opacity-100 hover:after:bg-body hover:after:w-full after:transition-all after:duration-400">{{ text }}</a>
+                                            {{ /mega_menu_item_link }}
+                                        {{ /mega_menu_sub_items }}
+                                    </div>
+                                    {{ /if}}
+                                </div>                                    
+                            </div>
+                        </div>
+                        {{ elseif highlight_menu_item }}
+                            <a href="{{ url }}" class="bg-brown flex items-center justify-center text-white hover:bg-teal-dark h-14 px-6">{{ title }}</a>
+                        {{ else }}
+                        <a href="{{ url }}" class="text-white inline-flex relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 hover:after:bg-white hover:after:w-full after:opacity-100 after:transition-all after:duration-400">
+                            {{ title }}
+                        </a>
+                        {{ endif }}
+                    </li>
+                    {{ /nav:main_menu }}
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu -->
+            <div
+                x-show="mobileMenu"                    
+                class="md:hidden absolute bg-white top-full inset-x-0 w-full pt-10 pb-20 px-5 h-[calc(100vh_-_120px)] overflow-y-auto mobile-menu-wrap"
+            >
+                <ul class="flex flex-col items-center text-lg gap-5 nav-bar">
+                    {{ nav:main_menu }}
+                    <li>
+                        {{ if enable_mega_menu }}
+                            <div x-data="{ sub:false }" class="flex flex-col items-center">
+                                <button
+                                    @click="sub=!sub"
+                                    class="flex items-center gap-2.5 relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 hover:after:bg-body hover:after:w-full after:transition-all after:duration-400"
+                                >
+                                   {{ title }}
+                                    <svg xmlns="http://www.w3.org/2000/svg" 
+                                    class="w-2.5 h-4 transition-transform duration-300"
+                                    :class="sub ? 'rotate-180' : 'rotate-0'" 
+                                    viewBox="0 0 320 512"><path d="M140.3 376.8c12.6 10.2 31.1 9.5 42.8-2.2l128-128c9.2-9.2 11.9-22.9 6.9-34.9S301.4 192 288.5 192l-256 0c-12.9 0-24.6 7.8-29.6 19.8S.7 237.5 9.9 246.6l128 128 2.4 2.2z" fill="currentColor"/></svg>
+
+                                    <div :class="sub ? 'opacity-180' : 'opacity-0'"
+                                    class="absolute w-0 h-0 border-b-[14px] border-x-[18px] border-b-[#e5e5e5] border-x-transparent left-1/2 top-8 z-1 -translate-x-1/2 transition-all duration-300"></div>
+                                </button>
+
+                                <div x-show="sub" class="w-full bg-white border border-[#E5E5E5] p-5 mt-4">
+                                    <div class="flex flex-col md:flex-row gap-10 md:gap-20 lg:gap-24">
+                                        <div class="w-full md:max-w-161.5">
+                                            {{ if mega_menu_heading }}
+                                            <h2 class="text-body text-3xl md:text-4xl font-heading font-semibold uppercase mb-6">{{ mega_menu_heading }}</h2>
+                                            {{ /if }}
+                                            {{ if mega_menu_short_description }}
+                                            <p class="mb-10">{{ mega_menu_short_description }}</p>
+                                            {{ /if }}
+                                            {{ if mega_menu_button_link }}
+                                            {{ mega_menu_button_link }}
+                                            <a href="{{ url }}" class="bg-brown inline-flex items-center justify-between font-light text-white hover:bg-teal-dark hover:text-white h-14 gap-3.25 pl-6 pr-6.75 group">
+                                                {{ text }}
+                                                <svg width="13" height="13" viewBox="0 0 13 13" class="group-hover:rotate-45 transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5312 0H12.2812V9H10.7812V2.5625L1.5625 11.7812L1.03125 12.3125L0 11.25L0.53125 10.7188L9.75 1.5H3.28125V0H11.5312Z" fill="currentColor"/></svg>
+                                            </a>
+                                            {{ /mega_menu_button_link }}
+                                            {{ /if }}
+                                        </div>
+                                        {{ if mega_menu_sub_items }}
+                                        <div class="flex flex-col gap-4">
+                                            {{ mega_menu_sub_items }}
+                                                {{ mega_menu_item_link}}
+                                                <div>
+                                                    <a href="{{ url }}" class="text-xl inline-flex relative after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 hover:after:bg-body hover:after:w-full after:transition-all after:duration-400">{{ text }}</a>
+                                                </div>
+                                                {{ /mega_menu_item_link }}
+                                            {{ /mega_menu_sub_items }}
+                                        </div>
+                                        {{ /if}}
+                                    </div>
+                                </div>
+                            </div>
+                        {{ elseif highlight_menu_item }}
+                            <a href="{{ url }}" class="bg-brown flex items-center justify-center text-white hover:bg-teal-dark h-12 px-10">{{ title }}</a>
+                        {{ else }}
+                            <a href="{{ url }}" class="relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 hover:after:bg-body hover:after:w-full after:transition-all after:duration-400">
+                                {{ title }}
+                            </a>
+                        {{ endif }}
+                        </li>
+                    {{ /nav:main_menu }}
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

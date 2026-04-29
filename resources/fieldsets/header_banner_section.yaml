@@ -1,0 +1,84 @@
+title: 'Header (Banner Section)'
+sections:
+  -
+    display: 'Banner Section'
+    fields:
+      -
+        handle: banner_variant
+        field:
+          options:
+            -
+              key: large
+              value: Large
+            -
+              key: small
+              value: Small
+          default: large
+          type: button_group
+          display: Variant
+      -
+        handle: banner_heading
+        field:
+          type: text
+          display: 'Banner Heading'
+          validate:
+            - required
+      -
+        handle: banner_sub_heading
+        field:
+          type: text
+          display: 'Banner Sub Heading'
+          if:
+            banner_variant: 'equals large'
+      -
+        handle: banner_short_description
+        field:
+          type: textarea
+          display: 'Banner Short Description'
+          if:
+            banner_variant: 'equals large'
+      -
+        handle: banner_buttons
+        field:
+          type: replicator
+          display: 'Banner Buttons'
+          if:
+            banner_variant: 'equals large'
+          collapse: true
+          sets:
+            new_set_group:
+              display: 'New Set Group'
+              sets:
+                banner_button:
+                  display: 'Banner Button'
+                  fields:
+                    -
+                      handle: button_link
+                      field:
+                        type: link_it
+                        display: 'Button Link'
+                        text: true
+      -
+        handle: banner_image
+        field:
+          container: assets
+          max_files: 1
+          type: assets
+          display: 'Banner Image'
+          validate:
+            - required
+          width: 50
+      -
+        handle: banner_video
+        field:
+          container: assets
+          max_files: 1
+          type: assets
+          display: 'Banner Video'
+          width: 50
+      -
+        handle: show_house_visual
+        field:
+          default: true
+          type: toggle
+          display: 'Show House Visual'

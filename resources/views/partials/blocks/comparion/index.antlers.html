@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="grid grid-cols-12 gap-x-4 gap-y-10">
+        <div class="col-span-full lg:col-span-4">
+            <h2 class="text-4xl sm:text-5xl 2xl:text-6xl sm:leading-[1.2] font-heading font-semibold uppercase mb-10 [&_span]:text-lime">
+                {{ comp_title
+                    | replace('[', '<span>')
+                    | replace(']', '</span>')
+                    | regex_replace('/\s+/', ' ')
+                    | trim
+                }}</h2>
+            <p>{{ short_description }}</p>
+        </div>
+        <div class="col-span-full lg:col-span-7 lg:col-start-6">
+            <div class="grid grid-cols-12 lg:grid-cols-7 lg:pt-2.75">
+
+                {{ comparison_table limit="1" }}
+                    {{ cells }}
+                        {{ if index == 0 }}
+                            <div class="col-span-7 md:col-span-6 lg:col-span-3"></div>
+                        {{ else }}
+                        <div class="{{ if index == 1 }}col-span-3 lg:col-span-2{{ else }}col-span-2 md:col-span-3 lg:col-span-2{{ /if }} border-b border-black pb-8 mb-4">
+                            <p class="font-bold text-xl sm:text-lg lg:text-xl">
+                                <span class="hidden md:inline-flex">{{ value }}</span>
+                                {{?
+                                    $parts = explode(' ', $value);
+                                    $first = $parts[0];
+                                    $last  = end($parts);
+                                ?}}
+                                <span class="md:hidden inline-flex">{{ last }}</span>
+                            </p>
+                        </div>
+                        {{ /if }}
+                    {{ /cells }}
+                {{ /comparison_table }}
+                    
+                {{ comparison_table offset="1" }}
+                <div class="col-span-full grid grid-cols-12 px-4 md:px-5 py-4 lg:grid-cols-7 items-center {{ if index %2 == 1 }}bg-neutral-100{{ else }}bg-white{{ /if }}">
+
+                    {{ cells }}
+
+                    {{ if index == 0 }}
+                        <div class="col-span-7 md:col-span-6 lg:col-span-3 pr-3">
+                            <p>{{ value }}</p>
+                        </div>
+                    {{ else }}
+                        <div class="{{ if index == 1 }}col-span-3 lg:col-span-2{{ else }}col-span-2 md:col-span-3 lg:col-span-2{{ /if }}">
+                            <div class="flex items-center gap-x-4">
+                                {{ if value == '1' }}
+                                    <i class="fa-sharp fa-solid fa-circle-check text-2xl leading-8 text-teal-dark"></i>
+                                {{ elseif value == '0' }}
+                                    <i class="fa-classic fa-solid fa-minus text-body text-2xl"></i>
+                                {{ else }}
+                                    <span>{{ value }}</span>
+                                {{ /if }}
+
+                            </div>
+                        </div>
+                    {{ /if }}
+                    {{ /cells }}
+                </div>
+                {{ /comparison_table }}
+            </div>
+        </div>
+    </div>
+</div>

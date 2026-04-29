@@ -1,0 +1,17 @@
+
+<div class="container">
+    <h2 class="text-4xl sm:text-5xl 2xl:text-6xl sm:leading-[1.2] font-heading font-semibold uppercase mb-10 md:mb-20">{{ houses_heading }}</h2>
+    <div class="grid md:grid-cols-2 gap-4">
+        
+        {{ if houses }}
+            {{ houses }}
+                {{ partial:blocks.houses.components.item }}
+            {{ /houses }}
+        {{ else }}
+            {{ collection:houses sort="order|asc" }}
+                {{ partial:blocks.houses.components.item }}
+            {{ /collection:houses }}
+        {{ /if }}
+
+    </div>
+</div>

@@ -1,0 +1,65 @@
+title: Default
+fields:
+  -
+    handle: block_id
+    field:
+      type: text
+      display: 'Block ID'
+      localizable: true
+      width: 50
+      validate:
+        - required
+  -
+    import: bg
+  -
+    handle: pt
+    field:
+      options:
+        -
+          key: pt-none
+          value: None
+        -
+          key: pt-xs
+          value: XS
+        -
+          key: pt-s
+          value: S
+        -
+          key: pt-m
+          value: M
+        -
+          key: pt-l
+          value: L
+        -
+          key: pt-xl
+          value: XL
+      type: button_group
+      display: 'Padding top'
+      width: 50
+      default: pt-none
+  -
+    handle: pb
+    field:
+      options:
+        -
+          key: pb-none
+          value: None
+        -
+          key: pb-xs
+          value: XS
+        -
+          key: pb-s
+          value: S
+        -
+          key: pb-m
+          value: M
+        -
+          key: pb-l
+          value: L
+        -
+          key: pb-xl
+          value: XL
+      type: button_group
+      display: 'Padding bottom'
+      width: 50
+      default: pb-none

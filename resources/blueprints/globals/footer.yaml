@@ -1,0 +1,28 @@
+title: Footer
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Footer
+        fields:
+          -
+            handle: footer_short_description
+            field:
+              type: textarea
+              display: 'Footer Short Description'
+          -
+            handle: copyright_text
+            field:
+              type: text
+              display: 'Copyright Text'
+          -
+            handle: kvk_number
+            field:
+              type: text
+              display: 'KVK Number'
+          -
+            handle: powered_by_text
+            field:
+              type: code
+              display: 'Powered By Text'

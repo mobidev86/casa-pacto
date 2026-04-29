@@ -1,0 +1,20 @@
+title: Logos
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        display: Logos
+        fields:
+          -
+            handle: header_logo
+            field:
+              container: assets
+              type: assets
+              display: 'Header Logo'
+          -
+            handle: footer_logo
+            field:
+              container: assets
+              type: assets
+              display: 'Footer Logo'

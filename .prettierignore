@@ -1,0 +1,9 @@
+*.md
+*.yaml
+artisan
+content
+node_modules
+please
+resources/blueprints
+resources/css/cp.css
+resources/fieldsets

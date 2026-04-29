@@ -1,0 +1,44 @@
+title: Steps
+sections:
+  -
+    display: Steps
+    fields:
+      -
+        handle: steps_title
+        field:
+          type: text
+          display: Title
+      -
+        handle: steps_short_description
+        field:
+          type: textarea
+          display: 'Short Description'
+      -
+        handle: steps_button
+        field:
+          text: true
+          type: link_it
+          display: Button
+      -
+        handle: steps_loop
+        field:
+          collapse: true
+          type: replicator
+          display: Steps
+          sets:
+            new_set_group:
+              display: 'New Set Group'
+              sets:
+                steps:
+                  display: Steps
+                  fields:
+                    -
+                      handle: steps_loop_heading
+                      field:
+                        type: text
+                        display: Heading
+                    -
+                      handle: steps_loop_content
+                      field:
+                        type: textarea
+                        display: Content

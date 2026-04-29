@@ -1,0 +1,120 @@
+<div class="flex flex-col lg:flex-row justify-between lg:pl-4 xl:pl-[calc(50%_-_1280px/2)] 2xl:pl-[calc(50%_-_1532px/2)]">
+    {{ if column_alignment == 'Text Left & Image Right' }}
+        <div class="w-full lg:w-[52.3%] max-lg:pl-4 pr-4 lg:pr-20 lg:max-w-209.75 max-lg:mb-20">
+            <div class="prose mb-10 max-w-none">
+                {{ section_text
+                    | replace('<h2', "<h2 class='text-4xl sm:text-5xl 2xl:text-6xl sm:leading-[1.2] font-heading font-semibold uppercase [&_strong]:text-lime [&_strong]:font-semibold mb-10  lg:max-w-125 2xl:max-w-150'")
+                }}
+            </div>
+            {{ if button_link }}
+            {{ button_link }}
+            <a href="{{ url }}" class="bg-brown inline-flex items-center justify-between text-white hover:bg-teal-dark h-14 gap-3.25 pl-6 pr-6.75 group">
+                {{ text }}
+                <svg width="13" height="13" viewBox="0 0 13 13" class="group-hover:rotate-45 transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5312 0H12.2812V9H10.7812V2.5625L1.5625 11.7812L1.03125 12.3125L0 11.25L0.53125 10.7188L9.75 1.5H3.28125V0H11.5312Z" fill="currentColor"/></svg>
+            </a>
+            {{ /button_link}}
+            {{/if }}
+        </div>
+
+        <div class="w-full lg:w-[47.7%]">
+            <div x-data="{ showModal: false }" class="relative overflow-hidden">
+                {{ if section_image }}
+                {{ section_image }}
+                <img src="{{ url }}" alt="{{ alt }}" class="w-full h-full object-cover aspect-[390/379] lg:aspect-[823/832]"/>
+                {{/section_image }}
+                {{ /if }}
+                
+                {{ if section_video}}
+                <button @click="showModal = true"
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full size-20 flex items-center justify-center cursor-pointer pl-1 text-teal hover:text-lime">
+                    <svg width="27" height="30" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L27 15L0 30V0Z" fill="currentColor"/></svg>
+                </button>
+
+                <div class="absolute -bottom-10 md:-bottom-15 lg:-bottom-20 xl:-bottom-21.5 -left-[10%] z-1 h-25 sm:h-30 w-[130%] -rotate-5 bg-brown md:h-40 xl:h-50 before:absolute before:rotate-5 before:right-0 before:-bottom-2 before:w-2/5 lg:before:bottom-5 before:h-20 before:bg-brown">
+                </div>
+
+                <!-- Modal Overlay -->
+                <div 
+                    id="modal-overlay" x-show="showModal"
+                    class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 px-4" style="display: none;"
+                >
+                    <!-- Modal Content -->
+                    <div class="bg-white relative max-w-5xl w-full shadow-2xl">
+                        <video autoplay muted loop id="heroVideo" poster="assets/images/hero-bg.jpg" class="w-full h-full object-cover">
+                            <source src="{{ section_video.url }}" type="video/mp4">
+                            Your browser does not support HTML5 video.
+                        </video><!-- use same class of video for iframe -->
+
+                        <button 
+                            id="close-button" @click="showModal = false"
+                            class="absolute right-0 top-0 p-3 bg-teal text-white hover:bg-black transition-colors"
+                        >
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        </button>
+                    </div>
+                </div>
+                {{ /if }}
+            </div>
+        </div>
+    {{ elseif column_alignment == 'Image Left & Text Right' }}
+    
+        <div class="w-full llg:w-[47.7%]">
+            <div x-data="{ showModal: false }" class="relative overflow-hidden">
+                {{ if section_image }}
+                {{ section_image }}
+                <img src="{{ url }}" alt="{{ alt }}" class="w-full h-full object-cover aspect-[390/379] lg:aspect-[823/832]"/>
+                {{/section_image }}
+                {{ /if }}
+                
+                {{ if section_video}}
+                <button @click="showModal = true"
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full size-20 flex items-center justify-center cursor-pointer pl-1 text-teal hover:text-lime">
+                    <svg width="27" height="30" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 0L27 15L0 30V0Z" fill="currentColor"/></svg>
+                </button>
+
+                <div class="absolute -bottom-10 md:-bottom-15 lg:-bottom-20 xl:-bottom-21.5 -left-[10%] z-1 h-25 sm:h-30 w-[130%] -rotate-5 bg-brown md:h-40 xl:h-50 before:absolute before:rotate-5 before:right-0 before:-bottom-2 before:w-2/5 lg:before:bottom-5 before:h-20 before:bg-brown">
+                </div>
+
+                <!-- Modal Overlay -->
+                <div 
+                    id="modal-overlay" x-show="showModal"
+                    class="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 px-4" style="display: none;"
+                >
+                    <!-- Modal Content -->
+                    <div class="bg-white relative max-w-5xl w-full shadow-2xl">
+                        <video autoplay muted loop id="heroVideo" poster="assets/images/hero-bg.jpg" class="w-full h-full object-cover">
+                            <source src="{{ section_video.url }}" type="video/mp4">
+                            Your browser does not support HTML5 video.
+                        </video><!-- use same class of video for iframe -->
+
+                        <button 
+                            id="close-button" @click="showModal = false"
+                            class="absolute right-0 top-0 p-3 bg-teal text-white hover:bg-black transition-colors"
+                        >
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                        </button>
+                    </div>
+                </div>
+                {{ /if }}
+            </div>
+        </div>
+
+        <div class="w-full lg:w-[52.3%] max-lg:pl-4 pr-4 lg:pr-20 lg:max-w-209.75 max-lg:mb-20">
+            <div class="prose mb-10 max-w-none">
+                {{ section_text
+                    | replace('<h2', "<h2 class='text-4xl sm:text-5xl 2xl:text-6xl sm:leading-[1.2] font-heading font-semibold uppercase [&_strong]:text-lime [&_strong]:font-semibold  mb-10 lg:max-w-125 2xl:max-w-150'")
+                }}
+            </div>
+            {{ if button_link }}
+            {{ button_link }}
+            <a href="{{ url }}" class="bg-brown inline-flex items-center justify-between text-white hover:bg-teal-dark h-14 gap-3.25 pl-6 pr-6.75 group">
+                {{ text }}
+                <svg width="13" height="13" viewBox="0 0 13 13" class="group-hover:rotate-45 transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5312 0H12.2812V9H10.7812V2.5625L1.5625 11.7812L1.03125 12.3125L0 11.25L0.53125 10.7188L9.75 1.5H3.28125V0H11.5312Z" fill="currentColor"/></svg>
+            </a>
+            {{ /button_link}}
+            {{/if }}
+        </div>
+
+    {{ /if }}
+
+</div>

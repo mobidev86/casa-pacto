@@ -1,0 +1,48 @@
+tree:
+  -
+    id: 71ebf47a-05ca-4e97-b7d3-632215036b36
+    entry: home
+  -
+    id: b9614b83-eecd-4cb3-ab20-9e685374731e
+    entry: a6253de7-d194-4c41-be5a-3aa19f0a2182
+    data:
+      enable_mega_menu: true
+      mega_menu_heading: 'ONZE FAMILIEWONINGEN'
+      mega_menu_short_description: 'Ontdek onze A+++(+) modellen 100m². Keuze uit Familiewoning 26 (grote keuken) of AM (mantelzorg focus). Klaar in 10 weken.'
+      mega_menu_button_link:
+        type: custom
+        url: '#'
+        text: 'Bekijk Familiewoningen'
+      mega_menu_sub_items:
+        -
+          id: xHHjl04oJu_zJXdbo4Shc
+          mega_menu_item_link:
+            type: custom
+            url: '#'
+            text: 'Familiewoning ‘26'
+          type: new_set
+          enabled: true
+        -
+          id: SSVx56-PNRCgNeCTDA4fP
+          mega_menu_item_link:
+            type: custom
+            url: '#'
+            text: 'Familiewoning AM'
+          type: new_set
+          enabled: true
+  -
+    id: 08d2de08-aebc-4cdb-91cc-9102540f861b
+    entry: 98eff009-72d2-46a9-ac7b-44ab7221e07b
+  -
+    id: f9e8758c-2a7a-4ee6-abe2-0c959c2ee275
+    entry: 2e26b7c1-ae87-46d3-a3f8-990c162b219e
+    data:
+      enable_mega_menu: false
+      mega_menu_heading: null
+      mega_menu_short_description: null
+      mega_menu_button_link: null
+  -
+    id: 0bf82538-ac79-4de2-9148-f21726aa2819
+    entry: 1d5ea8de-c5cb-4cf1-b9eb-3ede46d99cf4
+    data:
+      highlight_menu_item: true

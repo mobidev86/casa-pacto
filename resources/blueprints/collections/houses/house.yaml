@@ -1,0 +1,108 @@
+title: House
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: houses_information
+            field:
+              type: group
+              display: 'Houses Information'
+              fields:
+                -
+                  handle: houses_area
+                  field:
+                    type: text
+                    display: Area
+                    width: 50
+                -
+                  handle: required_plot_size
+                  field:
+                    type: text
+                    display: 'Required plot size'
+                    width: 50
+                -
+                  handle: short_description
+                  field:
+                    type: text
+                    display: 'Short Description'
+                -
+                  handle: houses_feature_points_description
+                  field:
+                    type: textarea
+                    display: 'Feature Points Description'
+                -
+                  handle: houses_feature_points
+                  field:
+                    type: list
+                    display: 'Feature Points'
+          -
+            import: blocks
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+              validate: 'max:200'
+          -
+            handle: price
+            field:
+              type: text
+              display: Price
+          -
+            handle: vat_number
+            field:
+              type: text
+              display: 'VAT Number'
+          -
+            handle: energy_label
+            field:
+              type: text
+              display: 'Energy Label'
+          -
+            handle: feature_image
+            field:
+              container: assets
+              max_files: 1
+              type: assets
+              display: 'Feature Image'
+  'SEO Meta':
+    display: 'SEO Meta'
+    sections:
+      -
+        fields:
+          -
+            handle: seo
+            field:
+              type: seo_pro
+              listable: false
+              display: SEO
+  'SEO Previews':
+    display: 'SEO Previews'
+    sections:
+      -
+        fields:
+          -
+            handle: seo_previews
+            field:
+              type: seo_pro_previews
+              listable: false
+              display: 'SEO Previews'
+              localizable: false
+              hide_display: true
+              unless:
+                seo.enabled: 'equals false'

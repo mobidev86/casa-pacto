@@ -1,0 +1,18 @@
+title: Comparion
+fields:
+  -
+    handle: comp_title
+    field:
+      type: text
+      display: Title
+  -
+    handle: short_description
+    field:
+      type: textarea
+      display: 'Short Description'
+  -
+    handle: comparison_table
+    field:
+      type: table
+      display: 'Comparison Table'
+      instructions: 'For the right sign of the table column, enter 1; for a dash, enter 0.'

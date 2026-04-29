@@ -1,0 +1,19 @@
+title: Background
+fields:
+  -
+    handle: bg
+    field:
+      options:
+        -
+          key: bg-none-default
+          value: Default
+        -
+          key: bg-brown-lighter
+          value: 'Brown Lighter'
+        -
+          key: bg-brown
+          value: Brown
+      max_items: 1
+      type: select
+      display: Background
+      width: 50

@@ -1,0 +1,58 @@
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: highlight_menu_item
+            field:
+              type: toggle
+              display: 'Highlight Menu Item'
+          -
+            handle: enable_mega_menu
+            field:
+              type: toggle
+              display: 'Enable Mega Menu'
+          -
+            handle: mega_menu_heading
+            field:
+              type: text
+              display: 'Mega Menu Heading'
+              if:
+                enable_mega_menu: 'equals true'
+          -
+            handle: mega_menu_short_description
+            field:
+              type: textarea
+              display: 'Mega Menu Short Description'
+              if:
+                enable_mega_menu: 'equals true'
+          -
+            handle: mega_menu_button_link
+            field:
+              text: true
+              type: link_it
+              display: 'Mega Menu Button Link'
+              if:
+                enable_mega_menu: 'equals true'
+          -
+            handle: mega_menu_sub_items
+            field:
+              type: replicator
+              display: 'Mega Menu Sub Items'
+              if:
+                enable_mega_menu: 'equals true'
+              sets:
+                new_set_group:
+                  display: 'New Set Group'
+                  sets:
+                    new_set:
+                      display: 'New Set'
+                      fields:
+                        -
+                          handle: mega_menu_item_link
+                          field:
+                            text: true
+                            type: link_it
+                            display: 'Mega Menu Item Link'

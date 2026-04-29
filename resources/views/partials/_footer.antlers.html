@@ -1,0 +1,93 @@
+{{#
+    @name Footer
+    @desc The sites footer rendered on each page.
+#}}
+<footer class="bg-white py-10 md:py-20">
+    <div class="container flex flex-col md:flex-row max-md:gap-10 gap-x-10 xl:gap-x-36.25">
+        <div class="flex flex-col md:w-[37%] md:max-w-125">
+            <div class="mb-10 md:mb-2.75">
+                <a href="{{ site:url }}" aria-label="Logo" class="inline-flex">
+                    {{ logos:footer_logo }}
+                    <img src="{{ url }}" alt="{{ alt }}" class="w-29.75"/>
+                    {{ /logos:footer_logo }}
+                </a>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 md:gap-4 pb-6 md:pb-10 border-b border-[#A3A3A3] flex-1 md:hidden">
+                <div class="lg:w-80 xl:w-125 lg:flex-1">
+                    <div class="text-gray font-semibold uppercase mb-1">STUUR EEN E-MAIL</div>
+                    <a href="mailto:{{ general:email_address }}" class="text-teal-dark text-lg md:text-xl lg:text-2xl font-semibold hover:text-lime">{{ general:email_address }}</a>
+                </div>
+                <div class="lg:w-80 xl:w-125 lg:flex-1">
+                    <div class="text-gray font-semibold uppercase mb-1">BEL ONS GERUST</div>
+                    <a href="tel:{{ general:phone_number }}" class="text-teal-dark text-lg md:text-xl lg:text-2xl font-semibold hover:text-lime">{{ general:phone_number }}</a>
+                </div>
+            </div>
+            <p class="mt-6 md:mt-7.5 mb-6">
+                {{ footer:footer_short_description }}
+            </p>
+            <div>
+                <p>{{ footer:copyright_text }}</p>
+                <p>{{ footer:kvk_number }}</p>
+                <p>{{ footer:powered_by_text }}</p>
+            </div>
+        </div>
+        <div class="w-full md:w-[60%] xl:max-w-221.75">
+            <div class="hidden md:flex flex-row gap-8 xl:gap-4 pb-10 border-b border-[#A3A3A3]">
+                <div class="lg:w-85 xl:w-125">
+                    <div class="text-gray font-semibold uppercase mb-1.5">STUUR EEN E-MAIL</div>
+                    <a href="mailto:{{ general:email_address }}" class="text-teal-dark text-lg md:text-xl lg:text-2xl font-semibold hover:text-lime">{{ general:email_address }}</a>
+                </div>
+                <div class="">
+                    <div class="text-gray font-semibold uppercase mb-1.5">BEL ONS GERUST</div>
+                    <a href="tel:{{ general:phone_number }}" class="text-teal-dark text-lg md:text-xl lg:text-2xl font-semibold hover:text-lime">{{ general:phone_number }}</a>
+                </div>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-y-8 gap-x-4 md:mt-9.5 flex-1">
+                <div class="sm:w-60.5">
+                    <div class="text-gray font-semibold uppercase mb-4 md:mb-7">SITEMAP</div>
+                   <ul class="text-base flex-col flex gap-2">
+                    {{ nav:site_map }}
+                        <li>
+                        <a 
+                            href="{{ url }}" 
+                            class="relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 hover:after:bg-body hover:after:w-full after:transition-all after:duration-400"
+                        >
+                            {{ title }}
+                        </a>
+                        </li>
+                    {{ /nav:site_map }}
+                    </ul>
+                </div>
+                {{ if general:address }}
+                <div class="sm:w-60.5">
+                    <div class="text-gray font-semibold uppercase mb-4 md:mb-7">ADRESGEGEVENS</div>
+                    <div class="leading-7.5">
+                        <a href="{{ general:map_link }}" target="_blank">
+                            {{ general:address 
+                                | replace:'[':'<p><strong>' 
+                                | replace:']':'</strong></p>' 
+                                | nl2br
+                            }}
+                        </a>
+                    </div>
+                </div>
+                {{ /if }}
+                <div class="sm:w-60.5">
+                    <div class="text-gray font-semibold uppercase mb-4 md:mb-7">LEGAL</div>
+                    <ul class="text-base flex-col flex gap-2">
+                    {{ nav:legal }}
+                        <li>
+                        <a 
+                            href="{{ url }}" 
+                            class="relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 hover:after:bg-body hover:after:w-full after:transition-all after:duration-400"
+                        >
+                            {{ title }}
+                        </a>
+                        </li>
+                    {{ /nav:legal }}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

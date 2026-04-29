@@ -1,0 +1,15 @@
+title: FAQ
+icon: collections
+template: default
+layout: layouts/layout
+revisions: false
+slugs: false
+sort_dir: desc
+date_behavior:
+  past: null
+  future: null
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: false

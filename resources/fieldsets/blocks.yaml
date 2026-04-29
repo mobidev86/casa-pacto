@@ -1,0 +1,77 @@
+title: Blocks
+fields:
+  -
+    handle: blocks
+    field:
+      collapse: true
+      type: replicator
+      display: Blocks
+      button_label: 'Add Section'
+      sets:
+        main:
+          display: General
+          sets:
+            header:
+              display: Header
+              fields:
+                -
+                  import: header_banner_section
+                -
+                  import: default
+            text_and_media:
+              display: 'Text + Media'
+              icon: fieldtype-textarea
+              fields:
+                -
+                  import: text_and_media
+                -
+                  import: default
+            gallery:
+              display: Gallery
+              icon: media-image-picture-gallery
+              fields:
+                -
+                  import: gallery
+                  section_behavior: flatten
+                -
+                  import: default
+            houses:
+              display: Houses
+              icon: home-house
+              fields:
+                -
+                  import: houses
+                -
+                  import: default
+            comparion:
+              display: Comparion
+              icon: add-circle
+              fields:
+                -
+                  import: comparion
+                -
+                  import: default
+            usps_section:
+              display: 'USPs Section'
+              icon: layout-grid
+              fields:
+                -
+                  import: usps_section
+                -
+                  import: default
+            steps:
+              display: Steps
+              icon: text-formatting-image-top
+              fields:
+                -
+                  import: steps
+                -
+                  import: default
+            call_to_action:
+              display: 'Call to Action'
+              icon: ai-chat-spark
+              fields:
+                -
+                  import: call_to_action
+                -
+                  import: default

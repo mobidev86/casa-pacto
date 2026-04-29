@@ -1,0 +1,14 @@
+title: Houses
+icon: collections
+template: default
+layout: layouts/layout
+revisions: false
+date: true
+sort_dir: desc
+preview_targets:
+  -
+    label: Entry
+    url: '{permalink}'
+    refresh: false
+structure:
+  root: false

@@ -1,0 +1,111 @@
+@import "tailwindcss";
+@import './theme.css';
+@plugin "@tailwindcss/typography";
+@source "../views";
+@source "../../content";
+
+@theme {
+    --font-sans: "Open Sans", sans-serif;
+    --font-heading: "Barlow", sans-serif;
+    --color-brown: #B98868;
+    --color-brown-lighter: #F2EDE7;
+    --color-lime: #78B82C;
+    --color-teal: #005233;
+    --color-teal-dark: #073A33;
+    --color-body: #1A1A1A;
+    --color-gray: #737373;
+    --color-neutral-100: #F2EDE7;
+    --header-gradient: 180deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%;
+}
+
+
+body{
+   @apply font-sans font-normal text-base leading-8 text-body;
+}
+
+a, input, button, .swiper-button-prev, .swiper-button-next, textarea {
+    @apply transition-all duration-300 ease-in outline-none;
+}
+
+a, button, input[type="submit"] {
+    @apply cursor-pointer;
+}
+
+.container {
+    @apply w-full max-w-none xl:max-w-328 2xl:max-w-391 px-4 mx-auto;
+}
+
+
+header{
+    &.sticky {
+        @apply fixed bg-white bg-none py-3 shadow-md;
+
+        .menuToggle {
+            @apply text-body;
+        }
+
+        .mobile-menu-wrap {
+            @apply h-[calc(100vh_-_80px)];
+        }
+
+        .nav-bar {
+            >li:not(:last-child) {
+                > a,button {
+                    @apply text-body hover:after:bg-body;
+                }
+            }
+        }
+    }  
+}
+
+
+.pt-none {
+    @apply pt-0;
+}
+.pt-xs {
+    @apply pt-5;
+}
+.pt-s {
+    @apply pt-10;
+}
+
+.pt-m {
+    @apply pt-10 xl:pt-20;
+}
+.pt-l {
+    @apply pt-16 xl:pt-30;
+}
+.pt-xl {
+    @apply pt-20 xl:pt-40;
+}
+
+.pb-none {
+    @apply pb-0;
+}
+.pb-xs {
+    @apply pb-5;
+}
+.pb-s {
+    @apply pb-10;
+}
+
+.pb-m {
+    @apply pb-10 xl:pb-20;
+}
+.pb-l {
+    @apply pb-16 xl:pb-30;
+}
+.pb-xl {
+    @apply pb-20 xl:pb-40;
+}
+
+.triangle-right:after {
+    clip-path: polygon(0 0, 0% 100%, 100% 50%);
+}
+
+.prose {
+    p {
+        @apply mb-8 last:mb-0 leading-8;
+    }
+}
+

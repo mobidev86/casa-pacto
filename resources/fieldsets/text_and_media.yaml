@@ -1,0 +1,90 @@
+title: 'Text + Media'
+fields:
+  -
+    handle: tam_variant
+    field:
+      options:
+        -
+          key: 'Variant 1'
+          value: 'Variant 1'
+        -
+          key: 'Variant 2'
+          value: 'Variant 2'
+        -
+          key: 'Variant 3'
+          value: 'Variant 3'
+      default: 'Variant 1'
+      type: button_group
+      display: Variant
+  -
+    handle: column_alignment
+    field:
+      options:
+        -
+          key: 'Text Left & Image Right'
+          value: 'Text Left & Image Right'
+        -
+          key: 'Image Left & Text Right'
+          value: 'Image Left & Text Right'
+      default: 'Text Left & Image Right'
+      type: select
+      display: 'Column Alignment'
+      unless:
+        tam_variant: 'equals Variant 3'
+  -
+    handle: section_text
+    field:
+      type: markdown
+      display: Text
+      buttons:
+        - bold
+        - italic
+        - unorderedlist
+        - orderedlist
+        - quote
+        - link
+        - image
+        - table
+        - code
+        - codeblock
+      unless:
+        tam_variant: 'equals Variant 3'
+  -
+    handle: text_media_v3_title
+    field:
+      type: text
+      display: Title
+      instructions: 'Use [TEXT] this format for highlight text'
+      if:
+        tam_variant: 'equals Variant 3'
+  -
+    handle: text_media_v3_short_description
+    field:
+      type: textarea
+      display: 'Short Description'
+      if:
+        tam_variant: 'equals Variant 3'
+  -
+    handle: button_link
+    field:
+      text: true
+      type: link_it
+      display: 'Button Link'
+  -
+    handle: section_image
+    field:
+      container: assets
+      max_files: 1
+      type: assets
+      display: 'Section Image'
+      width: 50
+  -
+    handle: section_video
+    field:
+      container: assets
+      max_files: 1
+      type: assets
+      display: 'Section Video'
+      width: 50
+      unless:
+        tam_variant: 'equals Variant 3'
