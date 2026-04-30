@@ -1,4 +1,4 @@
-title: Comparion
+title: Comparison
 fields:
   -
     handle: comp_title
@@ -10,6 +10,18 @@ fields:
     field:
       type: textarea
       display: 'Short Description'
+  -
+    handle: buttons
+    field:
+      type: grid
+      display: Buttons
+      fields:
+        -
+          handle: button_link
+          field:
+            text: true
+            type: link_it
+            display: 'Button Link'
   -
     handle: comparison_table
     field:

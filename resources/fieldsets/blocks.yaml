@@ -44,7 +44,7 @@ fields:
                 -
                   import: default
             comparion:
-              display: Comparion
+              display: Comparison
               icon: add-circle
               fields:
                 -
@@ -65,13 +65,5 @@ fields:
               fields:
                 -
                   import: steps
-                -
-                  import: default
-            call_to_action:
-              display: 'Call to Action'
-              icon: ai-chat-spark
-              fields:
-                -
-                  import: call_to_action
                 -
                   import: default

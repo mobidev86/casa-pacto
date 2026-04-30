@@ -58,6 +58,14 @@ blocks:
     section_image: images/house-img.jpg
     section_video: casa-pacto-header-video.webm
     bg: bg-brown-lighter
+    buttons:
+      -
+        id: 4a88d2qCmutqL5N8Sc1OX
+        button_link:
+          type: custom
+          url: /onze-aanpak
+          text: 'Meer over onze woningen'
+    v1_active_style_element: false
   -
     id: yVRuuovCAOu9ife_NgR1E
     houses_heading: 'Ontdek onze woningen'
@@ -239,7 +247,7 @@ blocks:
     tam_variant: 'Variant 3'
     button_link:
       type: custom
-      url: 'http://192.168.1.33:8000/assets/brochure/v7_casapacto_brochure_familiewoning.pdf'
+      url: /assets/brochure/v7_casapacto_brochure_familiewoning.pdf
       text: 'Download brochure'
     section_image: casa-pacto-brochure-image.jpg
     block_id: home-text-media-variant-3
@@ -249,24 +257,44 @@ blocks:
     enabled: true
     text_media_v3_title: 'Ontdek de <br/>[mogelijkheden].'
     text_media_v3_short_description: 'Lorem ipsum dolor sit amet consectetur. Sed in tempus id rhoncus neque iaculis enim hendrerit rhoncus. Amet nisi id ut dolor consectetur integer et enim. Sed facilisi eu amet et enim vitae nisl. Vitae egestas est et risus fermentum nisl at non. Non quam urna id nisi.'
+    buttons:
+      -
+        id: sELR_1h4GnfJMQDBt1Y6q
+        button_link:
+          type: custom
+          url: /assets/brochure/v7_casapacto_brochure_familiewoning.pdf
+          text: 'Download brochure'
+    v3_active_style_element: false
   -
-    id: Tlh_vo9q1XrrlLU11Xq78
-    cta_heading: 'NEEM CONTACt op'
-    cta_short_description: 'Zet vandaag de eerste stap naar uw nieuwe droomwoning. Neem contact op om uw kavel vrijblijvend te laten checken en ontvang een persoonlijk advies over de Familiewoningen.'
-    cta_button:
+    id: 6N5Y7rljvpqE4FZkgm2jl
+    tam_variant: 'Variant 1'
+    column_alignment: 'Text Left & Image Right'
+    section_text: |-
+      ## NEEM CONTACt op
+      Zet vandaag de eerste stap naar uw nieuwe droomwoning. Neem contact op om uw kavel vrijblijvend te laten checken en ontvang een persoonlijk advies over de Familiewoningen.
+    type: text_and_media
+    enabled: true
+    button_link:
       type: custom
-      url: '#'
-      text: 'Neem contact op'
-    cta_image: images/casa-pacto-team-discussing.jpg
-    after_image_text: 'ALTIJD VAKKUNDIG GEPLAATST!'
-    block_id: home-cta-section
+      url: 'http://127.0.0.1:8000/onze-aanpak'
+      text: 'Meer over onze woningen'
+    youtube_video_url: 'https://www.youtube.com/embed/wDchsz8nmbo?si=IgYBmaU8NETR4LHR'
+    block_id: text-and-media-section
     pt: pt-none
     pb: pb-none
-    type: call_to_action
-    enabled: true
+    section_image: images/casa-pacto-team-discussing.jpg
     bg: bg-brown
+    buttons:
+      -
+        id: 4a88d2qCmutqL5N8Sc1OX
+        button_link:
+          type: custom
+          url: '/#'
+          text: 'Neem contact op'
+    v1_active_style_element: true
+    call_to_action_text: 'ALTIJD VAKKUNDIG GEPLAATST!'
 updated_by: f25b2914-4af6-4dc3-a206-c5b610dfe147
-updated_at: 1777462715
+updated_at: 1777637804
 ---
 ## Welcome to your brand new Statamic site!
 

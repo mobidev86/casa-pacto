@@ -37,8 +37,12 @@ a, button, input[type="submit"] {
 
 
 header{
+    &.navScroll {
+        @apply -z-1 fixed opacity-0;
+    }    
+
     &.sticky {
-        @apply fixed bg-white bg-none py-3 shadow-md;
+        @apply bg-white bg-none py-3 fixed shadow-md z-1;
 
         .menuToggle {
             @apply text-body;
@@ -55,7 +59,11 @@ header{
                 }
             }
         }
-    }  
+    }
+
+    &.navSticky {
+        @apply z-50;
+    }
 }
 
 
@@ -97,6 +105,10 @@ header{
 }
 .pb-xl {
     @apply pb-20 xl:pb-40;
+}
+
+.site-page-banner {
+    @apply z-2;
 }
 
 .triangle-right:after {

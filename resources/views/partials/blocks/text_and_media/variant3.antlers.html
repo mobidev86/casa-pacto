@@ -1,3 +1,41 @@
+{{ if v3_active_style_element }}
+    <div class="flex flex-col md:flex-row justify-between md:pr-4 xl:pr-[calc(50%_-_1280px/2)] 2xl:pr-[calc(50%_-_1532px/2)] ">
+        <div class="w-full md:w-[47.7%] relative overflow-hidden">
+            {{ section_image }}
+            <img src="{{ url }}" alt="{{ alt }}" class="w-full h-full object-cover"/>
+            {{ /section_image }}
+
+            <div class="absolute -bottom-8.75 sm:-bottom-10 xl:-bottom-15 -left-[10%] z-1 h-25 sm:h-28 w-[130%] -rotate-5 bg-brown md:-rotate-5 md:h-30 lg:h-30 xl:h-42.5 before:absolute before:rotate-10 before:right-0 before:-bottom-10 before:w-1/3 before:h-20 before:bg-brown">
+            </div>
+        </div>
+        <div class="w-full md:w-[52.3%] py-20 lg:py-40 max-md:pr-4 pl-4 md:pl-10 lg:pl-20 2xl:pl-36.25 flex flex-col">
+            <div class="lg:max-w-189.5 flex flex-col gap-10">
+                <h2 class="text-4xl sm:text-5xl 2xl:text-6xl sm:leading-[1.2] font-heading font-semibold uppercase">
+                    {{ text_media_v3_title
+                        | replace('[', '<span>')
+                        | replace(']', '</span>')
+                        | regex_replace('/\s+/', ' ')
+                        | trim
+                    }}
+                </h2>
+                <div class="prose max-w-none">
+                    {{ text_media_v3_short_description | nl2br}}
+                </div>
+                <div class="flex flex-wrap gap-2.5">
+                {{ buttons }}
+                    {{ if button_link }}
+                        {{ button_link }}
+                        <a href="{{ url }}" target="_blank" class="bg-brown inline-flex items-center justify-between text-white hover:bg-teal-dark h-14 gap-3.25 pl-6 pr-6.75 group"> {{ text}}
+                            <i class="fa-sharp fa-regular fa-arrow-right -rotate-45 group-hover:rotate-0 transition-all duration-300"></i>
+                        </a>
+                        {{ /button_link}}
+                    {{/if }}
+                {{ /buttons }}
+                </div>
+            </div>
+        </div>
+    </div>
+{{ else }}
 <div class="py-40 px-4 md:px-10 relative overflow-hidden">
     <div class="absolute inset-0 after:absolute after:inset-0 after:bg-black/40">
         {{ section_image }}
@@ -17,17 +55,20 @@
                 }}
             </h2>
             <div class="max-w-171.5 mx-auto text-center">
-                {{ text_media_v3_short_description }}
+                {{ text_media_v3_short_description | nl2br }}
             </div>
-            <div>
+            <div class="flex flex-wrap gap-2.5 justify-center">
+            {{ buttons }}
                 {{ if button_link }}
                     {{ button_link }}
                     <a href="{{ url }}" target="_blank" class="bg-lime inline-flex items-center justify-between text-white hover:bg-body h-14 gap-3.25 pl-6 pr-6.75 group"> {{ text}}
-                        <svg width="13" height="13" viewBox="0 0 13 13" class="group-hover:rotate-45 transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5312 0H12.2812V9H10.7812V2.5625L1.5625 11.7812L1.03125 12.3125L0 11.25L0.53125 10.7188L9.75 1.5H3.28125V0H11.5312Z" fill="currentColor"/></svg>
+                        <i class="fa-sharp fa-regular fa-arrow-right -rotate-45 group-hover:rotate-0 transition-all duration-300"></i>
                     </a>
                     {{ /button_link}}
                 {{/if }}
+            {{ /buttons }}
             </div>
         </div>
     </div>
 </div>
+{{ /if }}

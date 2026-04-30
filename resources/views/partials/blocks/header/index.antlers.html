@@ -26,13 +26,13 @@
                     {{ if index % 2 == 0 }}
                     {{ button_link }}
                         <a href="{{ url }}" class="bg-lime inline-flex items-center justify-between text-white hover:bg-body  h-14 gap-3.25 pl-6 pr-6.75 group">{{ text }}
-                            <svg width="13" height="13" viewBox="0 0 13 13" class="group-hover:rotate-45 transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5312 0H12.2812V9H10.7812V2.5625L1.5625 11.7812L1.03125 12.3125L0 11.25L0.53125 10.7188L9.75 1.5H3.28125V0H11.5312Z" fill="currentColor"/></svg>
+                            <i class="fa-sharp fa-regular fa-arrow-right -rotate-45 group-hover:rotate-0 transition-all duration-300"></i>
                         </a>
                     {{ /button_link }}
                     {{ else }}
                         {{ button_link}}
                         <a href="{{ url }}" class="bg-transparent border border-white inline-flex items-center justify-between text-white hover:bg-white hover:text-body h-14 gap-3.25 pl-6 pr-6.75 group">{{ text }}
-                            <svg width="13" height="13" viewBox="0 0 13 13" class="group-hover:rotate-45 transition-all duration-300" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5312 0H12.2812V9H10.7812V2.5625L1.5625 11.7812L1.03125 12.3125L0 11.25L0.53125 10.7188L9.75 1.5H3.28125V0H11.5312Z" fill="currentColor"/></svg>
+                            <i class="fa-sharp fa-regular fa-arrow-right -rotate-45 group-hover:rotate-0 transition-all duration-300"></i>
                         </a>
                         {{ /button_link}}
                     {{ /if }}
@@ -52,16 +52,14 @@
     {{ /if }}
 </div>
 {{ else }}
-    <div class="relative md:max-h-199.75 site-page-banner">
-        <div class="absolute inset-0 after:absolute after:inset-0 max-md:after:bg-black/40 md:after:bg-gradient-to-r md:after:from-black/70">
-            <img src="{{ banner_image:url }}" alt="Hero Image" class="w-full h-full object-cover hidden"/>
+    <div class="relative h-125 flex items-center site-page-banner">
+        <div class="absolute inset-0 after:absolute after:inset-0 after:bg-black/40">
+            <img src="{{ banner_image:url }}" alt="Hero Image" class="w-full h-full object-cover "/>
         </div>
-        <div class="container relative z-2 pt-40 md:pt-42.25 pb-34 md:pb-10.25">
-            <div class="md:max-w-148.75 lg:max-w-175 xl:max-w-221.75">
-                {{ if banner_heading }}
-                <h1 class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl sm:leading-[1.25] font-heading font-semibold max-w-80 md:max-w-132 mb-6 uppercase">{{ banner_heading }}</h1>
-                {{ /if }}
-            </div>
+        <div class="container relative z-2 py-20 md:py-25">
+            {{ if banner_heading }}
+            <h1 class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl sm:leading-[1.25] font-heading font-semibold uppercase">{{ banner_heading }}</h1>
+            {{ /if }}
         </div>
     </div>
 {{ /if }}

@@ -40,6 +40,47 @@ tabs:
                     display: 'Feature Points'
           -
             import: blocks
+          -
+            handle: houses_featured
+            field:
+              type: group
+              display: Featured
+              fields:
+                -
+                  handle: featured_image
+                  field:
+                    container: assets
+                    type: assets
+                    display: Image
+                -
+                  handle: featured_list
+                  field:
+                    type: grid
+                    display: 'Featured List'
+                    fields:
+                      -
+                        handle: font_awesome_class
+                        field:
+                          type: text
+                          display: 'Font Awesome Class'
+                      -
+                        handle: value
+                        field:
+                          type: text
+                          display: Value
+                -
+                  handle: featured_text
+                  field:
+                    container: assets
+                    remove_empty_nodes: false
+                    type: bard
+                    display: 'Featured Text'
+                -
+                  handle: featured_link
+                  field:
+                    text: true
+                    type: link_it
+                    display: 'Featured Link'
   sidebar:
     display: Sidebar
     sections:
@@ -80,6 +121,14 @@ tabs:
               max_files: 1
               type: assets
               display: 'Feature Image'
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              default: now
+              validate:
+                - required
   'SEO Meta':
     display: 'SEO Meta'
     sections:

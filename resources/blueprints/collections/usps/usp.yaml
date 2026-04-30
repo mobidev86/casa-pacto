@@ -13,12 +13,10 @@ tabs:
               validate:
                 - required
           -
-            handle: usp_icon
+            handle: font_awesome_class
             field:
-              container: assets
-              max_files: 1
-              type: assets
-              display: Icon
+              type: text
+              display: 'Font Awesome Class'
           -
             handle: usp_description
             field:

@@ -76,9 +76,13 @@ sections:
           type: assets
           display: 'Banner Video'
           width: 50
+          if:
+            banner_variant: 'equals large'
       -
         handle: show_house_visual
         field:
           default: true
           type: toggle
           display: 'Show House Visual'
+          if:
+            banner_variant: 'equals large'

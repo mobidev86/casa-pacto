@@ -27,7 +27,7 @@ fields:
           key: 'Image Left & Text Right'
           value: 'Image Left & Text Right'
       default: 'Text Left & Image Right'
-      type: select
+      type: button_group
       display: 'Column Alignment'
       unless:
         tam_variant: 'equals Variant 3'
@@ -65,11 +65,17 @@ fields:
       if:
         tam_variant: 'equals Variant 3'
   -
-    handle: button_link
+    handle: buttons
     field:
-      text: true
-      type: link_it
-      display: 'Button Link'
+      type: grid
+      display: Buttons
+      fields:
+        -
+          handle: button_link
+          field:
+            text: true
+            type: link_it
+            display: 'Button Link'
   -
     handle: section_image
     field:
@@ -86,5 +92,58 @@ fields:
       type: assets
       display: 'Section Video'
       width: 50
-      unless:
+      if:
+        tam_variant: 'equals Variant 1'
+  -
+    handle: v2_active_style_element
+    field:
+      type: toggle
+      display: 'Active Style Element'
+      if:
+        tam_variant: 'equals Variant 2'
+  -
+    handle: call_to_action_icon
+    field:
+      type: text
+      display: 'Call To Action icon (Font Awesome)'
+      if:
+        tam_variant: 'equals Variant 2'
+        v2_active_style_element: 'equals true'
+  -
+    handle: call_to_action_title
+    field:
+      type: text
+      display: 'Call To Action Title'
+      if:
+        tam_variant: 'equals Variant 2'
+        v2_active_style_element: 'equals true'
+  -
+    handle: call_to_action_content
+    field:
+      type: textarea
+      display: 'Call To Action Content'
+      if:
+        tam_variant: 'equals Variant 2'
+        v2_active_style_element: 'equals true'
+  -
+    handle: v1_active_style_element
+    field:
+      type: toggle
+      display: 'Active Style Element'
+      if:
+        tam_variant: 'equals Variant 1'
+  -
+    handle: call_to_action_text
+    field:
+      type: text
+      display: 'Call To Action Text'
+      if:
+        tam_variant: 'equals Variant 1'
+        v1_active_style_element: 'equals true'
+  -
+    handle: v3_active_style_element
+    field:
+      type: toggle
+      display: 'Active Style Element'
+      if:
         tam_variant: 'equals Variant 3'

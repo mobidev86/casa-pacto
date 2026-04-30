@@ -13,6 +13,9 @@ fields:
         -
           key: bg-brown
           value: Brown
+        -
+          key: bg-neutral-100
+          value: Neutral
       max_items: 1
       type: select
       display: Background

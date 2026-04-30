@@ -1,0 +1,90 @@
+<div class="container flex flex-col lg:flex-row justify-between gap-10">
+    {{ if column_alignment == 'Text Left & Image Right' }}
+        <div class="w-full lg:w-1/2 lg:max-w-189">
+            <div class="prose max-w-none">
+                {{ section_text
+                    | replace('<h2', "<h2 class='text-4xl sm:text-5xl 2xl:text-6xl sm:leading-[1.2] font-heading font-semibold uppercase [&_strong]:text-lime [&_strong]:font-semibold mb-10  lg:max-w-125 2xl:max-w-150'")
+                }}
+            </div>
+            <div class="flex gap-2.5 flex-wrap">
+            {{ buttons }}
+                {{ if button_link }}
+                    {{ button_link }}
+                    <a href="{{ url }}" class="bg-brown inline-flex items-center justify-between text-white hover:bg-teal-dark h-14 gap-3.25 pl-6 pr-6.75 group">
+                        {{ text }}
+                        <i class="fa-sharp fa-regular fa-arrow-right -rotate-45 group-hover:rotate-0 transition-all duration-300"></i>
+                    </a>
+                    {{ /button_link}}
+                {{/if }}
+            {{ /buttons }}
+            </div>
+        </div>
+
+        <div class="w-full lg:w-1/2 relative lg:pr-20 xl:pr-32.5 lg:pt-11 flex flex-col lg:justify-end">
+            {{ if section_image }}
+                {{ section_image }}
+                    <img src="{{ url }}" alt="{{ alt }}" class="w-full h-full object-cover lg:max-w-125 aspect-[500/640]"/>
+                {{/section_image }}
+            {{ /if }}
+            
+            {{ if v2_active_style_element && ( call_to_action_icon || call_to_action_title || call_to_action_content ) }}
+                <div class="bg-teal text-white py-12 px-6 md:px-10 lg:absolute lg:top-0 lg:right-0 lg:max-w-92.5">
+                    {{ if call_to_action_icon }}
+                        <i class="{{ call_to_action_icon }} text-[32px]"></i>
+                    {{ /if }}
+                    {{ if call_to_action_title }}
+                        <div class="text-2xl font-semibold mt-8 mb-6">{{ call_to_action_title }}</div>
+                    {{ /if }}
+                    {{ if call_to_action_content }}
+                        <p>{{ call_to_action_content }}</p>
+                    {{ /if }}
+                </div>
+            {{ /if }}
+        </div>
+    {{ elseif column_alignment == 'Image Left & Text Right' }}
+    
+        <div class="w-full lg:w-1/2 relative lg:pl-20 xl:pl-32.5 lg:pt-11">
+            {{ if section_image }}
+                {{ section_image }}
+                    <img src="{{ url }}" alt="{{ alt }}" class="w-full h-full object-cover lg:max-w-125 aspect-[500/640]"/>
+                {{/section_image }}
+            {{ /if }}
+            
+            {{ if v2_active_style_element && ( call_to_action_icon || call_to_action_title || call_to_action_content ) }}
+                <div class="bg-teal text-white py-12 px-6 md:px-10 lg:absolute lg:top-0 lg:left-0 lg:max-w-92.5">
+                    {{ if call_to_action_icon }}
+                        <i class="{{ call_to_action_icon }} text-[32px]"></i>
+                    {{ /if }}
+                    {{ if call_to_action_title }}
+                        <div class="text-2xl font-semibold mt-8 mb-6">{{ call_to_action_title }}</div>
+                    {{ /if }}
+                    {{ if call_to_action_content }}
+                        <p>{{ call_to_action_content }}</p>
+                    {{ /if }}
+                </div>
+            {{ /if }}
+        </div>
+
+        <div class="w-full lg:w-1/2 lg:max-w-189">
+            <div class="prose max-w-none">
+                {{ section_text
+                    | replace('<h2', "<h2 class='text-4xl sm:text-5xl 2xl:text-6xl sm:leading-[1.2] font-heading font-semibold uppercase [&_strong]:text-lime [&_strong]:font-semibold  mb-10 lg:max-w-125 2xl:max-w-150'")
+                }}
+            </div>
+            <div class="flex gap-2.5 flex-wrap">
+            {{ buttons }}
+            {{ if button_link }}
+            {{ button_link }}
+            <a href="{{ url }}" class="bg-brown inline-flex items-center justify-between text-white hover:bg-teal-dark h-14 gap-3.25 pl-6 pr-6.75 group">
+                {{ text }}
+                <i class="fa-sharp fa-regular fa-arrow-right -rotate-45 group-hover:rotate-0 transition-all duration-300"></i>
+            </a>
+            {{ /button_link}}
+            {{/if }}
+            {{ /buttons }}
+            </div>
+        </div>
+
+    {{ /if }}
+
+</div>
